@@ -3,8 +3,13 @@ const webpack = require("webpack")
 const htmlWebpackPlugin = require("html-webpack-plugin")
 
 module.exports = {
-    mode: "production",
+    mode: "development",
+    devtool: "source-map",
     entry: './src/client/index.js',
+    output: {
+        clean: true //clean the dist folder before output
+
+    },
     module: {
         rules: [
             {
