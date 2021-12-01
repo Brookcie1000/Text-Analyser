@@ -94,7 +94,7 @@ define(['./workbox-54f803f1'], (function (workbox) { 'use strict';
 
   workbox.precacheAndRoute([{
     "url": "./index.html",
-    "revision": "5719dfcff2a0934dd977bc1ba916c16c"
+    "revision": "83dad68b0348ff91a2a7d6d830530fe7"
   }, {
     "url": "main.js",
     "revision": "1d278187f7b09e241a6d2ed153117b97"
