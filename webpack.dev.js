@@ -8,7 +8,11 @@ module.exports = {
     devtool: "source-map",
     entry: './src/client/index.js',
     output: {
-        clean: true //clean the dist folder before output
+        clean: true, //clean the dist folder before output
+        path: path.resolve(__dirname, 'dist'),
+        filename: 'main.js',
+        libraryTarget: "var",
+        library: "Client"
 
     },
     module: {

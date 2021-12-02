@@ -5,3 +5,5 @@ import './styles/form.scss'
 import './styles/header.scss'
 import {handleSubmit} from "./js/formHandler"
 import {checkForName} from "./js/nameChecker"
+
+export {handleSubmit, checkForName}

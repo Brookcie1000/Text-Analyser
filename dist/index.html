@@ -17,12 +17,13 @@
         </header>
 
         <main>
-            <section>
-                <form class="">
-                    <input id="name" type="text" name="input" value="" placeholder="Name">
-                    <input type="button" name="" value="submit" onclick="Client.handleSubmit(event)">
+            <section class="content">
+                <form onsubmit="return Client.handleSubmit(event)">
+                <label for="title">Enter your text here</label>
+                <input id="name" type="text" name="input" value="" placeholder="Text or URL">
+                <input type="submit" name="" value="Analyze text" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
                 </form>
-            </section>
+                </section>
 
             <section>
                 <strong>Form Results:</strong>
@@ -33,14 +34,5 @@
         <footer>
             <p>This is a footer</p>
         </footer>
-        <script>
-            // Check that service workers are supported
-            if ('serviceWorker' in navigator) {
-                // Use the window load event to keep the page load performant
-                window.addEventListener('load', () => {
-                    navigator.serviceWorker.register('/service-worker.js');
-                });
-            }
-        </script>
     </body>
 </html>

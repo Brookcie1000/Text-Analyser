@@ -1,3 +1,4 @@
+var Client;
 /******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
@@ -860,7 +861,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "handleSubmit": () => (/* binding */ handleSubmit)
 /* harmony export */ });
-function handleSubmit(event) {
+const handleSubmit = (event) => {
     event.preventDefault()
 
     // check what text was put into the form field
@@ -876,6 +877,7 @@ function handleSubmit(event) {
 }
 
 
+
 /***/ }),
 
 /***/ "./src/client/js/nameChecker.js":
@@ -888,7 +890,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "checkForName": () => (/* binding */ checkForName)
 /* harmony export */ });
-function checkForName(inputText) {
+const checkForName = (inputText) => {
     console.log("::: Running checkForName :::", inputText);
     let names = [
         "Picard",
@@ -902,6 +904,8 @@ function checkForName(inputText) {
         alert("Welcome, Captain!")
     }
 }
+
+
 
 
 /***/ })
@@ -981,6 +985,10 @@ var __webpack_exports__ = {};
   !*** ./src/client/index.js ***!
   \*****************************/
 __webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "handleSubmit": () => (/* reexport safe */ _js_formHandler__WEBPACK_IMPORTED_MODULE_5__.handleSubmit),
+/* harmony export */   "checkForName": () => (/* reexport safe */ _js_nameChecker__WEBPACK_IMPORTED_MODULE_6__.checkForName)
+/* harmony export */ });
 /* harmony import */ var _styles_resets_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/resets.scss */ "./src/client/styles/resets.scss");
 /* harmony import */ var _styles_base_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/base.scss */ "./src/client/styles/base.scss");
 /* harmony import */ var _styles_footer_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./styles/footer.scss */ "./src/client/styles/footer.scss");
@@ -995,8 +1003,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
 })();
 
+Client = __webpack_exports__;
 /******/ })()
 ;
 //# sourceMappingURL=main.js.map

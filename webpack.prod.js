@@ -1,14 +1,17 @@
 const path = require("path")
 const webpack = require("webpack")
 const htmlWebpackPlugin = require("html-webpack-plugin")
-const workboxPlugin = require('workbox-webpack-plugin')
 
 module.exports = {
     mode: "development",
     devtool: "source-map",
     entry: './src/client/index.js',
     output: {
-        clean: true //clean the dist folder before output
+        clean: true, //clean the dist folder before output
+        path: path.resolve(__dirname, 'dist'),
+        filename: 'main.js',
+        libraryTarget: "var",
+        library: "Client"
 
     },
     module: {
@@ -32,8 +35,7 @@ module.exports = {
                 template: "./src/client/views/index.html",
                 filename: "./index.html"
 
-            }),
-            new workboxPlugin.GenerateSW()
+            })
 
     ]
 
