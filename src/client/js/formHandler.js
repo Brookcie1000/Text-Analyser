@@ -11,7 +11,14 @@ const handleSubmit = async (event) => {
     const apiData = await getAPIDataFromServer("http://localhost:8081/getAPIData", formText)
     .then(apiData => apiData.json())
     .then(function(apiData) {
-        document.getElementById('results').innerHTML = "The analysis of the link has determined with " + apiData.confidence + "/100 that the article/webpage is: " + apiData.subjectivity + " and is " + apiData.irony
+        if (apiData.confidence == undefined){
+            alert("Invalid URL, please insert a valid URL")
+
+        } else {
+            document.getElementById('results').innerHTML = "The analysis of the link has determined with " + apiData.confidence + "/100 that the article/webpage is: " + apiData.subjectivity + " and is " + apiData.irony
+
+        }
+        
     })
 }
 
