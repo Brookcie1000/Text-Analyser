@@ -866,7 +866,7 @@ const handleSubmit = async (event) => {
     event.preventDefault()
 
     // check what text was put into the form field
-    let formText = document.getElementById('name').value
+    const formText = document.getElementById('name').value
 
     console.log("::: Data Submitted :::")
     console.log("==Contacting Server==")
@@ -885,12 +885,12 @@ const getAPIDataFromServer = async (url, userText) => {
         method: 'POST',
         credentials: 'same-origin',
         headers: {
-            'Content-Type': 'text'
+            'Content-Type': 'text/plain'
         },
         // Body data type must match "Content-Type" header        
         body: userText
     })
-
+    
     return res
 }
 

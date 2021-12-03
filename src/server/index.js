@@ -2,13 +2,16 @@ const path = require('path')
 const express = require('express')
 const cors = require('cors')
 const bodyParser = require('body-parser')
+const dotenv = require('dotenv');
 const fetch = require('node-fetch') //node-fetch version must be less than v3 to use require statement
 
-const app = express()
+const app = express() //runs the server
 
-app.use(cors())
+app.use(cors()) //allows communication between client and server
 
-app.use(bodyParser.text())
+app.use(bodyParser.text()) //allows to send and receive text from client in POST
+
+dotenv.config(); //allows local codes for privacy keys
 
 app.use(express.static('dist'))
 
@@ -25,7 +28,7 @@ app.listen(8081, function () {
 
 const getAPIData = async (req,res) => {
     const urlRoot = "https://api.meaningcloud.com/sentiment-2.1"
-    const urlKey = "?key=937a8e2d30f77d3a8fa04df4e6e4422f"
+    const urlKey = `?key=${process.env.API_KEY}`
     const urlLang = "&lang=auto"
     let urlLink = "&url=" + req.body
     console.log(`
