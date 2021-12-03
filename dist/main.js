@@ -859,50 +859,39 @@ module.exports = styleTagTransform;
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "handleSubmit": () => (/* binding */ handleSubmit)
+/* harmony export */   "handleSubmit": () => (/* binding */ handleSubmit),
+/* harmony export */   "getAPIDataFromServer": () => (/* binding */ getAPIDataFromServer)
 /* harmony export */ });
-const handleSubmit = (event) => {
+const handleSubmit = async (event) => {
     event.preventDefault()
 
     // check what text was put into the form field
     let formText = document.getElementById('name').value
-    checkForName(formText)
 
-    console.log("::: Form Submitted :::")
-    fetch('http://localhost:8080/test')
-    .then(res => res.json())
+    console.log("::: Data Submitted :::")
+    console.log("==Contacting Server==")
+    console.log(`Sending ${formText} to server.`)
+    const apiData = await getAPIDataFromServer("http://localhost:8081/getAPIData", formText)
+    .then(apiData => apiData.json())
     .then(function(res) {
         document.getElementById('results').innerHTML = res.message
     })
 }
 
+const getAPIDataFromServer = async (url, userText) => {
 
+    const res = await fetch(url, {
+        // Set the POST data to be sent.
+        method: 'POST',
+        credentials: 'same-origin',
+        headers: {
+            'Content-Type': 'text'
+        },
+        // Body data type must match "Content-Type" header        
+        body: userText
+    })
 
-/***/ }),
-
-/***/ "./src/client/js/nameChecker.js":
-/*!**************************************!*\
-  !*** ./src/client/js/nameChecker.js ***!
-  \**************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "checkForName": () => (/* binding */ checkForName)
-/* harmony export */ });
-const checkForName = (inputText) => {
-    console.log("::: Running checkForName :::", inputText);
-    let names = [
-        "Picard",
-        "Janeway",
-        "Kirk",
-        "Archer",
-        "Georgiou"
-    ]
-
-    if(names.includes(inputText)) {
-        alert("Welcome, Captain!")
-    }
+    return res
 }
 
 
@@ -987,7 +976,7 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "handleSubmit": () => (/* reexport safe */ _js_formHandler__WEBPACK_IMPORTED_MODULE_5__.handleSubmit),
-/* harmony export */   "checkForName": () => (/* reexport safe */ _js_nameChecker__WEBPACK_IMPORTED_MODULE_6__.checkForName)
+/* harmony export */   "getAPIDataFromServer": () => (/* reexport safe */ _js_formHandler__WEBPACK_IMPORTED_MODULE_5__.getAPIDataFromServer)
 /* harmony export */ });
 /* harmony import */ var _styles_resets_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/resets.scss */ "./src/client/styles/resets.scss");
 /* harmony import */ var _styles_base_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/base.scss */ "./src/client/styles/base.scss");
@@ -995,7 +984,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_form_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./styles/form.scss */ "./src/client/styles/form.scss");
 /* harmony import */ var _styles_header_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./styles/header.scss */ "./src/client/styles/header.scss");
 /* harmony import */ var _js_formHandler__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./js/formHandler */ "./src/client/js/formHandler.js");
-/* harmony import */ var _js_nameChecker__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./js/nameChecker */ "./src/client/js/nameChecker.js");
 
 
 
