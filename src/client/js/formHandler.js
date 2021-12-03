@@ -7,10 +7,11 @@ const handleSubmit = async (event) => {
     console.log("::: Data Submitted :::")
     console.log("==Contacting Server==")
     console.log(`Sending ${formText} to server.`)
+    document.getElementById('results').innerHTML = "Results Pending..."
     const apiData = await getAPIDataFromServer("http://localhost:8081/getAPIData", formText)
     .then(apiData => apiData.json())
-    .then(function(res) {
-        document.getElementById('results').innerHTML = res.message
+    .then(function(apiData) {
+        document.getElementById('results').innerHTML = "The analysis of the link has determined with " + apiData.confidence + "/100 that the article/webpage is: " + apiData.subjectivity + " and is " + apiData.irony
     })
 }
 
