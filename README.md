@@ -1,27 +1,16 @@
-# Webpack Express Example App
+# Article/Text Analysis using MeaningCloud API
 
-The goal of this repo is be an example of a basic but functional app built on Express and Webpack.
-
-If you want to follow along with the course, you will start from the master and switch to the appropriate numbered branches of this repo as needed. The branches are:
-- [0-initial-setup](https://github.com/udacity/fend-webpack-content/tree/0-initial-setup)
-- [1-install-webpack](https://github.com/udacity/fend-webpack-content/tree/1-install-webpack)
-- [2-add-webpack-entry](https://github.com/udacity/fend-webpack-content/tree/2-add-webpack-entry)
-- [3-webpack-output-and-loaders](https://github.com/udacity/fend-webpack-content/tree/3-webpack-output-and-loaders)
-- [4-webpack-plugins](https://github.com/udacity/fend-webpack-content/tree/4-webpack-plugins)
-- [5-webpack-mode](https://github.com/udacity/fend-webpack-content/tree/5-webpack-mode)
-- [6-webpack-for-convenience](https://github.com/udacity/fend-webpack-content/tree/6-webpack-for-convenience)
-
-Each one is a step along the path to creating a fully functional webpack setup. In each branch, there will be a documentation file that lists out the steps taken in that branch (each step should also match to a git commit if you look at the history) which you can use as a checklist when setting up your own projects. 
+The goal of this repo is to demonstrate a connection to a server from the client side which gathers information on an API to determine text attributes.
 
 ## Get Up and Running
 
-Fork this repo, then clone your forked repo down to your computer:
-
-```
-git clone -- git@github.com:[your-user-name]/webpack-express.git --
-```
-
-`cd` into your new folder and run:
-- ```npm install```
-- ```npm start``` to start the app
-- this app runs on localhost:8080, but you can of course edit that in index.js
+1) Download this repo
+2) In the root directory, open a terminal (Git Bash was used in this example)
+3) Type and run: npm run build-prod
+4) This will create/update the dist folder
+5) In the '/src/client/server you will find the 'index.js' file, open another terminal here.
+6) Type and run: npm start index.js
+7) The server will begin running on localhost:8081 (this can be changed, but is not reccomended to be 8080 as this is the port the Dev server runs on)
+8) Open the 'dist' folder and open the index.html file
+9) Make sure the server is running in a terminal (step 6) and input a link to an article to analyse
+10) After a short few seconds, it will return an analysis.
