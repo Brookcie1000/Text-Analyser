@@ -11,6 +11,6 @@ The goal of this repo is to demonstrate a connection to a server from the client
 5) In the '/src/client/server you will find the 'index.js' file, open another terminal here.
 6) Type and run: npm start index.js
 7) The server will begin running on localhost:8081 (this can be changed, but is not reccomended to be 8080 as this is the port the Dev server runs on)
-8) Open the 'dist' folder and open the index.html file
-9) Make sure the server is running in a terminal (step 6) and input a link to an article to analyse
+8) Connect to localhost:8081 to find the website running.
+9) Copy and paste a URL link to an article and submit.
 10) After a short few seconds, it will return an analysis.
