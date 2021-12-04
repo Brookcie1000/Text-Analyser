@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "jest --config babel.config.js",
+    "test": "jest",
     "start": "node src/server/index.js",
     "build-prod": "webpack --config webpack.prod.js",
     "build-dev": "webpack-dev-server --config webpack.dev.js --open"
@@ -26,10 +26,12 @@
     "@babel/preset-env": "^7.16.4",
     "babel-jest": "^27.4.2",
     "babel-loader": "^8.2.3",
+    "babel-polyfill": "^6.26.0",
     "css-loader": "^6.5.1",
     "html-webpack-plugin": "^5.5.0",
     "jest": "^27.4.3",
     "node-sass": "^6.0.1",
+    "regenerator-runtime": "^0.13.9",
     "sass-loader": "^12.3.0",
     "style-loader": "^3.3.1",
     "webpack-bundle-analyzer": "^4.5.0",

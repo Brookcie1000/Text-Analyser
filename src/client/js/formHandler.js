@@ -1,3 +1,5 @@
+import fetch from "node-fetch" //Needed for the jest testing to run properly
+
 const handleSubmit = async (event) => {
     event.preventDefault()
 
@@ -8,21 +10,21 @@ const handleSubmit = async (event) => {
     console.log("==Contacting Server==")
     console.log(`Sending ${formText} to server.`)
     document.getElementById('results').innerHTML = "Results Pending..."
-    const apiData = await getAPIDataFromServer("http://localhost:8081/getAPIData", formText)
+    const apiData = await getAPIDataFromServer("http://localhost:8081/getAPIData", formText) //contact our server hosted on 8081
     .then(apiData => apiData.json())
     .then(function(apiData) {
-        if (apiData.confidence == undefined){
-            alert("Invalid URL, please insert a valid URL")
+        if (apiData.confidence == undefined){ //check to see if data is invalid
+            alert("Invalid URL, please insert a valid URL") //likely a URL is incorrect, pushed to client
 
-        } else {
+        } else { //else update the UI to display API results
             document.getElementById('results').innerHTML = "The analysis of the link has determined with " + apiData.confidence + "/100 that the article/webpage is: " + apiData.subjectivity + " and is " + apiData.irony
 
         }
         
     })
-}
+} 
 
-const getAPIDataFromServer = async (url, userText) => {
+const getAPIDataFromServer = async (url, userText) => { //function contacts server to then contact the API
 
     const res = await fetch(url, {
         // Set the POST data to be sent.
@@ -35,7 +37,7 @@ const getAPIDataFromServer = async (url, userText) => {
         body: userText
     })
     
-    return res
+    return res //return the server response
 }
 
 export {handleSubmit}

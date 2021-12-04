@@ -1,3 +1,5 @@
+//import and export all our code for webpack
+
 import './styles/resets.scss'
 import './styles/base.scss'
 import './styles/footer.scss'
