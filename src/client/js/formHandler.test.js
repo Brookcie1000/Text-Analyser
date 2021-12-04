@@ -1,6 +1,6 @@
 import 'regenerator-runtime' //Needed for jest
 import {getAPIDataFromServer} from "./formHandler" //import the function we are testing
-jest.setTimeout(10000) //Increase from default 5 seconds
+jest.setTimeout(30000) //Increase from default 5 seconds
 
 const urlLink = "https://levelup.gitconnected.com/all-possible-ways-of-making-an-api-call-in-plain-javascript-c0dee3c11b8b" //URL we are testing
 
